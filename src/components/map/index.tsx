@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import bard from "../../assets/character/bard.png";
+import { useSelector } from "react-redux";
+import { playerSelector } from "../../store/player/selectors";
 
 const Container = styled.canvas`
   position: absolute;
@@ -23,34 +25,31 @@ const setupCanvas = (
 
 const Map = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const player = useSelector(playerSelector);
 
   useEffect(() => {
     const canvas = canvasRef.current as HTMLCanvasElement;
     const context = setupCanvas(canvas);
-
-    // 캔버스에 대한 로딩이 끝나면 서버? 에서 불러오는 처리가 필요
-    // 분리할 것
-    // fetch users and
 
     const image = new Image();
     image.src = bard;
     image.addEventListener("load", () => {
       const width = 80;
       const height = 110;
-      context!.setTransform(1, 0, 0, 1, 1900, 650); // 마지막 2개느 현재 위치
+      context!.setTransform(1, 0, 0, 1, 0, 0);
       context!.drawImage(
         image,
         width * 0,
         height * 0,
         width,
         height,
-        0,
-        0,
+        player.positionX,
+        player.positionY,
         width,
         height
       );
     });
-  }, [canvasRef]);
+  }, [player]);
 
   return <Container ref={canvasRef} />;
 };
