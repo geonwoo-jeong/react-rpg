@@ -1,55 +1,58 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import bard from "../../assets/character/bard.png";
 
 const Container = styled.canvas`
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100%;
 `;
 
+const setupCanvas = (
+  canvas: HTMLCanvasElement
+): CanvasRenderingContext2D | null => {
+  const dpr = 2;
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+  ctx.scale(dpr, dpr);
+
+  return ctx;
+};
+
 const Map = () => {
-  const setupCanvas = (canvas: HTMLCanvasElement) => {
-    const dpr = 2;
-    const rect = canvas.getBoundingClientRect();
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext("2d");
-    ctx!.scale(dpr, dpr);
-
-    return ctx;
-  };
-
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const onClick = () => {
-    const canvas = canvasRef.current;
+  useEffect(() => {
+    const canvas = canvasRef.current as HTMLCanvasElement;
+    const context = setupCanvas(canvas);
 
-    if (canvasRef && canvas) {
-      const context = setupCanvas(canvas);
-      const scaleRate = 4;
-      const image = new Image(15, 30);
-      image.src = bard;
-      image.width = 15;
-      image.height = 30;
+    // 캔버스에 대한 로딩이 끝나면 서버? 에서 불러오는 처리가 필요
+    // 분리할 것
+    // fetch users and
 
-      context!.save();
-      context!.setTransform(1, 0, 0, 1, 0, 0);
-      context!.clearRect(0, 0, 500, 500);
+    const image = new Image();
+    image.src = bard;
+    image.addEventListener("load", () => {
+      const width = 80;
+      const height = 110;
+      context!.setTransform(1, 0, 0, 1, 1900, 650); // 마지막 2개느 현재 위치
+      context!.drawImage(
+        image,
+        width * 0,
+        height * 0,
+        width,
+        height,
+        0,
+        0,
+        width,
+        height
+      );
+    });
+  }, [canvasRef]);
 
-      const spriteWidth = 0;
-      const spriteHeight = 0;
-      const pixelsLeft = 0;
-      const pixelsTop = 0;
-      const canvasPosX = 0;
-      const canvasPosY = 0;
-
-      context!.drawImage(image, 0, 0, 60, 120, 30, 30, 60, 120);
-      context!.scale(0.5, 0.5);
-    }
-  };
-
-  return <Container ref={canvasRef} onClick={onClick} />;
+  return <Container ref={canvasRef} />;
 };
 
 export default Map;
