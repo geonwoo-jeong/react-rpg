@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/react-rpg/static/js/main.36597387.chunk.js",
-    "main.js.map": "/react-rpg/static/js/main.36597387.chunk.js.map",
+    "main.js": "/react-rpg/static/js/main.c9b917a9.chunk.js",
+    "main.js.map": "/react-rpg/static/js/main.c9b917a9.chunk.js.map",
     "runtime~main.js": "/react-rpg/static/js/runtime~main.deedadac.js",
     "runtime~main.js.map": "/react-rpg/static/js/runtime~main.deedadac.js.map",
-    "static/js/2.6f265ba4.chunk.js": "/react-rpg/static/js/2.6f265ba4.chunk.js",
-    "static/js/2.6f265ba4.chunk.js.map": "/react-rpg/static/js/2.6f265ba4.chunk.js.map",
+    "static/js/2.78d98b09.chunk.js": "/react-rpg/static/js/2.78d98b09.chunk.js",
+    "static/js/2.78d98b09.chunk.js.map": "/react-rpg/static/js/2.78d98b09.chunk.js.map",
     "index.html": "/react-rpg/index.html",
-    "precache-manifest.723fe32edeabb9cf9b00ab23c1f58282.js": "/react-rpg/precache-manifest.723fe32edeabb9cf9b00ab23c1f58282.js",
+    "precache-manifest.c9c05fdab57079728e403afca1dc47b3.js": "/react-rpg/precache-manifest.c9c05fdab57079728e403afca1dc47b3.js",
     "service-worker.js": "/react-rpg/service-worker.js",
     "static/media/bard.png": "/react-rpg/static/media/bard.c8ae0df8.png"
   }

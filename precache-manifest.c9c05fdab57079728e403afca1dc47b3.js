@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3ff1bb0e0cdbd501472119045aa20dfe",
+    "revision": "7185c0ef5a7033981be8024727696f67",
     "url": "/react-rpg/index.html"
   },
   {
-    "revision": "fcf2099e8bea6eb1398b",
-    "url": "/react-rpg/static/js/2.6f265ba4.chunk.js"
+    "revision": "e48ed43da690a94ad5ec",
+    "url": "/react-rpg/static/js/2.78d98b09.chunk.js"
   },
   {
-    "revision": "e354f2d257213cdb2b23",
-    "url": "/react-rpg/static/js/main.36597387.chunk.js"
+    "revision": "1211d15300fe1abbdd82",
+    "url": "/react-rpg/static/js/main.c9b917a9.chunk.js"
   },
   {
     "revision": "965d54c2106ddcfdf043",
