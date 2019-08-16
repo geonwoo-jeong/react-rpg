@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import World from "./components/world";
 import styled, { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import store from "./store/configureStore";
+import GameEngine from "./classes/GameEngine";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -27,6 +28,7 @@ const Container = styled.div`
 `;
 
 const App: React.FC = () => {
+
   return (
     <Provider store={store}>
       <GlobalStyle />

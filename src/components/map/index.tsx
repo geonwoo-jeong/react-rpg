@@ -26,30 +26,39 @@ const setupCanvas = (
 const Map = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const player = useSelector(playerSelector);
+  // const [frame, setFrame] = useState(0);
+  // const dispatch = useDispatch();
+  // const gameEngine = new GameEngine(60, value => setFrame(frame + value));
 
-  useEffect(() => {
-    const canvas = canvasRef.current as HTMLCanvasElement;
-    const context = setupCanvas(canvas);
+  // gameEngine.start();
 
-    const image = new Image();
-    image.src = bard;
-    image.addEventListener("load", () => {
-      const width = 80;
-      const height = 110;
-      context!.setTransform(1, 0, 0, 1, 0, 0);
-      context!.drawImage(
-        image,
-        width * 0,
-        height * 0,
-        width,
-        height,
-        player.positionX,
-        player.positionY,
-        width,
-        height
-      );
-    });
-  }, [player]);
+  // useEffect(() => {
+  //   console.log(frame);
+  // }, [frame]);
+
+  // useEffect(() => {
+  //   const canvas = canvasRef.current as HTMLCanvasElement;
+  //   const context = setupCanvas(canvas);
+
+  //   const image = new Image();
+  //   image.src = bard;
+  //   image.addEventListener("load", () => {
+  //     const width = 80;
+  //     const height = 110;
+  //     // context!.setTransform(1, 0, 0, 1, 0, 0);
+  //     context!.drawImage(
+  //       image,
+  //       width * 0,
+  //       height * 0,
+  //       width,
+  //       height,
+  //       player.positionX,
+  //       player.positionY,
+  //       width,
+  //       height
+  //     );
+  //   });
+  // }, [player]);
 
   return <Container ref={canvasRef} />;
 };
